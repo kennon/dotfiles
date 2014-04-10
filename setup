@@ -5,5 +5,6 @@ mkdir -p ~/.vim/backup
 ln -sf ~/dotfiles/vimrc ~/.vimrc
 
 ln -sf ~/dotfiles/bash_aliases ~/.bash_aliases
+source ~/.bash_aliases
 
 ln -sf ~/dotfiles/durisrc ~/.durisrc
