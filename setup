@@ -1,0 +1,5 @@
+#/bin/sh
+ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
+
+mkdir -p ~/.vim/backup
+ln -sf ~/dotfiles/vimrc ~/.vimrc
