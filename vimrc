@@ -1,6 +1,8 @@
 set nocompatible
 syntax enable
 
+set hidden
+
 set tabstop=2
 set expandtab
 set shiftwidth=2
