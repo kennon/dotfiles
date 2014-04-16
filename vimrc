@@ -20,3 +20,7 @@ highlight LineNr ctermfg=darkgrey
 set backupdir=~/.vim/backup//
 set directory=~/.vim/backup//
 
+" Local config
+if filereadable($HOME . "/.vimrc.local")
+  source ~/.vimrc.local
+endif

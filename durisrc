@@ -227,3 +227,4 @@
 #PATHDIR          {u}                     {d}                          {16}
 #PATHDIR          {d}                     {u}                          {32}
 #VARIABLE         {target}                {kuo}
+#READ             {.durisrc.local}
