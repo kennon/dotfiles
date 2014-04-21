@@ -17,18 +17,18 @@
   editor = vim
 
 [branch]
-	autosetupmerge = true
+  autosetupmerge = true
 
 [push]
-	default = current
+  default = current
 
 [branch "master"]
-	remote = origin
-	merge = refs/heads/master
+  remote = origin
+  merge = refs/heads/master
 
 [branch "staging"]
-	remote = origin
-	merge = refs/heads/staging
+  remote = origin
+  merge = refs/heads/staging
 
 [include]
   path = .gitconfig.local
