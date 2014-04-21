@@ -1,0 +1,33 @@
+[color]
+  ui = auto
+
+[alias]
+  st = status
+  stat = status
+  co = checkout
+  ci = commit
+  br = branch
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  type = cat-file -t
+  dump = cat-file -p
+  up = !git fetch origin && git rebase origin/master
+
+[core]
+  excludesfile = ~/.gitignore
+
+[branch]
+	autosetupmerge = true
+
+[push]
+	default = current
+
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+
+[branch "staging"]
+	remote = origin
+	merge = refs/heads/staging
+
+[include]
+  path = .gitconfig.local

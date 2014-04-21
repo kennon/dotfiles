@@ -8,3 +8,5 @@ ln -sf ~/dotfiles/bash_aliases ~/.bash_aliases
 source ~/.bash_aliases
 
 ln -sf ~/dotfiles/durisrc ~/.durisrc
+
+ln -sf ~/dotfiles/gitconfig ~/.gitconfig
