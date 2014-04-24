@@ -42,6 +42,7 @@ Plugin 'tpope/vim-fugitive.git'
 Plugin 'avakhov/vim-yaml'
 
 Plugin 'scrooloose/nerdtree'
+map <Leader>t :NERDTreeToggle<CR>
 
 call vundle#end()
 " end Vundle
