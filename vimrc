@@ -8,6 +8,7 @@ set tabstop=2
 set expandtab
 set shiftwidth=2
 set softtabstop=2
+set scrolloff=8
 
 set hlsearch
 set ignorecase
@@ -37,6 +38,10 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
 Plugin 'tpope/vim-fugitive.git'
+
+Plugin 'avakhov/vim-yaml'
+
+Plugin 'scrooloose/nerdtree'
 
 call vundle#end()
 " end Vundle
