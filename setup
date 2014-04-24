@@ -1,12 +1,23 @@
 #/bin/sh
+echo "Setting up tmux config..."
 ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
 
+echo "Setting up vim config..."
 mkdir -p ~/.vim/backup
-ln -sf ~/dotfiles/vimrc ~/.vimrc
 
+if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
+  git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+fi
+
+ln -sf ~/dotfiles/vimrc ~/.vimrc
+vim +PluginInstall +qall 
+
+echo "Setting up bash config..."
 ln -sf ~/dotfiles/bash_aliases ~/.bash_aliases
 source ~/.bash_aliases
 
+echo "Setting up duris/tt++ config..."
 ln -sf ~/dotfiles/durisrc ~/.durisrc
 
+echo "Setting up git config..."
 ln -sf ~/dotfiles/gitconfig ~/.gitconfig
