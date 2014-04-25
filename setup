@@ -10,7 +10,6 @@ if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
 fi
 
 ln -sf ~/dotfiles/vimrc ~/.vimrc
-vim +PluginInstall +qall 
 vim +PluginUpdate +qall 
 
 echo "Setting up bash config..."

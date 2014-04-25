@@ -23,7 +23,7 @@ set directory=~/.vim/backup//
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o
 
-let mapleader = ","
+let mapleader = " "
 nnoremap <Leader>n :bnext<CR>
 nnoremap <Leader>p :bprev<CR>
 
@@ -39,10 +39,11 @@ let g:ctrlp_cmd = 'CtrlP'
 
 Plugin 'tpope/vim-fugitive.git'
 
-Plugin 'avakhov/vim-yaml'
+" Plugin 'avakhov/vim-yaml'
 
 Plugin 'scrooloose/nerdtree'
 map <Leader>t :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.o$']
 
 call vundle#end()
 " end Vundle
