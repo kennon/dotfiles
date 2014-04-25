@@ -1,6 +1,7 @@
 set nocompatible
 filetype off
 syntax enable
+set mouse=a
 
 set hidden
 
@@ -23,9 +24,15 @@ set directory=~/.vim/backup//
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o
 
+" quicker jump between scope delimiters
+map <tab> %
+
+" quickly select a line
+nnoremap vv ^vg_
+
 let mapleader = " "
-nnoremap <Leader>n :bnext<CR>
-nnoremap <Leader>p :bprev<CR>
+nnoremap <silent> <Leader>n :bnext<CR>
+nnoremap <silent> <Leader>p :bprev<CR>
 
 " Begin Vundle
 set rtp+=~/.vim/bundle/Vundle.vim/ " set the runtime path to include Vundle and initialize
@@ -44,6 +51,8 @@ Plugin 'tpope/vim-fugitive.git'
 Plugin 'scrooloose/nerdtree'
 map <Leader>t :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.o$']
+
+Plugin 'bronson/vim-visual-star-search'
 
 call vundle#end()
 " end Vundle
