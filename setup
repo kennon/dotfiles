@@ -2,11 +2,17 @@
 echo "Setting up tmux config..."
 ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
 
+if [ $(dpkg-query -W -f='${Status}' ack-grep 2>/dev/null | grep -c "ok installed") -eq 0 ];
+then
+  echo "Ack is not installed, vim ack support will not be available."
+  echo "Install with: sudo apt-get install ack-grep OR brew install ack"
+fi
+
 echo "Setting up vim config..."
 mkdir -p ~/.vim/backup
 
-if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
-  git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+if [ ! -d ~/.vim/bundle/vundle.vim ]; then
+  git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle.vim
 fi
 
 ln -sf ~/dotfiles/vimrc ~/.vimrc
