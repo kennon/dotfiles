@@ -68,7 +68,7 @@ vmap <leader>* :<C-u>call <SID>VSetSearch()<CR>:execute 'noautocmd Ack ' . @/<CR
 set rtp+=~/.vim/bundle/Vundle.vim/ " set the runtime path to include Vundle and initialize
 call vundle#begin()
 
-Plugin 'gmarik/vundle.vim' " let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim' " let Vundle manage Vundle, required
 
 Plugin 'kien/ctrlp.vim.git'
 let g:ctrlp_map = '<c-p>'
@@ -84,8 +84,14 @@ let NERDTreeIgnore = ['\.o$']
 
 "Plugin 'bronson/vim-visual-star-search'
 
+" on ubuntu precise, ack-grep is an older version so have to override default
+" arguments
+let g:ack_default_options = " -H --nocolor --nogroup --column -a"
 Plugin 'mileszs/ack.vim'
 nnoremap <Leader>s :Ack 
+
+" for newer versions of ack, use this in .vimrc.local:
+" let g:ack_default_options = " -s -H --nocolor --nogroup --column"
 
 call vundle#end()
 " end Vundle

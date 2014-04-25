@@ -11,8 +11,8 @@ fi
 echo "Setting up vim config..."
 mkdir -p ~/.vim/backup
 
-if [ ! -d ~/.vim/bundle/vundle.vim ]; then
-  git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle.vim
+if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
+  git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 
 ln -sf ~/dotfiles/vimrc ~/.vimrc
