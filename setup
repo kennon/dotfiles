@@ -1,9 +1,15 @@
 #/bin/sh
 echo "Setting up tmux config..."
-ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
+if [ -f ~/.tmux.conf ]; then
+  echo "~/.tmux.conf already exists, skipping"
+else
+  ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
+fi
 touch ~/.tmux.conf.local
 
-if [ $(dpkg-query -W -f='${Status}' ack-grep 2>/dev/null | grep -c "ok installed") -eq 0 ];
+# check to see if the ack command exists
+command -v ack >/dev/null 2>&1
+if [ $? -eq 1 ];
 then
   echo "Ack is not installed, vim ack support will not be available."
   echo "Install with: sudo apt-get install ack-grep OR brew install ack"
@@ -16,24 +22,48 @@ if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
   git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 
-ln -sf ~/dotfiles/vimrc ~/.vimrc
+if [ -f ~/.vimrc ]; then
+  echo "~/.vimrc already exists, skipping"
+else
+  ln -sf ~/dotfiles/vimrc ~/.vimrc
+fi
 touch ~/.vimrc.local
 vim +PluginUpdate +qall 
 
 echo "Setting up bash config..."
-ln -sf ~/dotfiles/bash_aliases ~/.bash_aliases
+if [ -f ~/.bash_aliases ]; then
+  echo "~/.bash_aliases already exists, skipping"
+else
+  ln -sf ~/dotfiles/bash_aliases ~/.bash_aliases
+fi
 source ~/.bash_aliases
 touch ~/.bash_aliases.local
 
 echo "Setting up duris/tt++ config..."
-ln -sf ~/dotfiles/durisrc ~/.durisrc
+if [ -f ~/.durisrc ]; then
+  echo "~/.durisrc already exists, skipping"
+else
+  ln -sf ~/dotfiles/durisrc ~/.durisrc
+fi
 touch ~/.durisrc.local
 
 echo "Setting up git config..."
-ln -sf ~/dotfiles/gitconfig ~/.gitconfig
+if [ -f ~/.gitconfig ]; then
+  echo "~/.gitconfig already exists, skipping"
+else
+  ln -sf ~/dotfiles/gitconfig ~/.gitconfig
+fi
 touch ~/.gitconfig.local
 
 echo "Setting up Rake tasks..."
-ln -sf ~/dotfiles/Rakefile ~/Rakefile
-ln -sf ~/dotfiles/tasks ~/
+if [ -f ~/Rakefile ]; then
+  echo "~/Rakefile already exists, skipping"
+else
+  ln -sf ~/dotfiles/Rakefile ~/Rakefile
+fi
+if [ -f ~/tasks ]; then
+  echo "~/tasks already exists, skipping"
+else
+  ln -sf ~/dotfiles/tasks ~/
+fi
 mkdir -p ~/tasks.local
