@@ -1,6 +1,7 @@
 #/bin/sh
 echo "Setting up tmux config..."
 ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
+touch ~/.tmux.conf.local
 
 if [ $(dpkg-query -W -f='${Status}' ack-grep 2>/dev/null | grep -c "ok installed") -eq 0 ];
 then
@@ -16,18 +17,23 @@ if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
 fi
 
 ln -sf ~/dotfiles/vimrc ~/.vimrc
+touch ~/.vimrc.local
 vim +PluginUpdate +qall 
 
 echo "Setting up bash config..."
 ln -sf ~/dotfiles/bash_aliases ~/.bash_aliases
 source ~/.bash_aliases
+touch ~/.bash_aliases.local
 
 echo "Setting up duris/tt++ config..."
 ln -sf ~/dotfiles/durisrc ~/.durisrc
+touch ~/.durisrc.local
 
 echo "Setting up git config..."
 ln -sf ~/dotfiles/gitconfig ~/.gitconfig
+touch ~/.gitconfig.local
 
 echo "Setting up Rake tasks..."
 ln -sf ~/dotfiles/Rakefile ~/Rakefile
-ln -sf ~/dotfiles/tasks ~/tasks
+ln -sf ~/dotfiles/tasks ~/
+mkdir -p ~/tasks.local
