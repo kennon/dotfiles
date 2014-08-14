@@ -27,3 +27,7 @@ ln -sf ~/dotfiles/durisrc ~/.durisrc
 
 echo "Setting up git config..."
 ln -sf ~/dotfiles/gitconfig ~/.gitconfig
+
+echo "Setting up Rake tasks..."
+ln -sf ~/dotfiles/Rakefile ~/Rakefile
+ln -sf ~/dotfiles/tasks ~/tasks

@@ -76,6 +76,8 @@ let g:ctrlp_cmd = 'CtrlP'
 
 Plugin 'tpope/vim-fugitive.git'
 
+Plugin 'vim-ruby/vim-ruby'
+
 " Plugin 'avakhov/vim-yaml'
 
 Plugin 'scrooloose/nerdtree'
