@@ -1,7 +1,6 @@
 ##
 # global aliases
 # put local aliases in .bash_aliases.local
-alias tt="tt++ ~/.durisrc"
 alias ta="tmux attach"
 
 # load local aliases

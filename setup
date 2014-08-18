@@ -39,14 +39,6 @@ fi
 source ~/.bash_aliases
 touch ~/.bash_aliases.local
 
-echo "Setting up duris/tt++ config..."
-if [ -f ~/.durisrc ]; then
-  echo "~/.durisrc already exists, skipping"
-else
-  ln -sf ~/dotfiles/durisrc ~/.durisrc
-fi
-touch ~/.durisrc.local
-
 echo "Setting up git config..."
 if [ -f ~/.gitconfig ]; then
   echo "~/.gitconfig already exists, skipping"
