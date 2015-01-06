@@ -24,12 +24,21 @@ namespace :ssl do
   task :assemble_cert do
     cert_dir = get_env(:cert_dir)
     domain = get_env(:domain)
+    ssl_provider = get_env(:ssl_provider)
     pem_path = File.join(cert_dir, "#{domain}.pem")
 
     File.open(pem_path, 'w+') do |pem_file|
       cert_filename = domain.gsub(/\./, '_') + '.crt'
       pem_file.write(File.read(File.join(cert_dir, cert_filename)))
-      pem_file.write(File.read(File.join(cert_dir, 'PositiveSSLCA2.crt')))
+      
+      case ssl_provider
+      when 'comodo'
+        pem_file.write(File.read(File.join(cert_dir, 'COMODORSADomainValidationSecureServerCA.crt')))
+        pem_file.write(File.read(File.join(cert_dir, 'COMODORSAAddTrustCA.crt')))
+      when 'positive'
+        pem_file.write(File.read(File.join(cert_dir, 'PositiveSSLCA2.crt')))
+      end
+
       pem_file.write(File.read(File.join(cert_dir, 'AddTrustExternalCARoot.crt')))
     end
 

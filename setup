@@ -1,4 +1,13 @@
 #/bin/sh
+
+echo "Setting up zsh config..."
+if [ -f ~/.zshrc ]; then
+  echo "~/.zshrc already exists, skipping"
+else
+  ln -sf ~/dotfiles/zshrc ~/.zshrc
+fi
+touch ~/.zshrc.local
+
 echo "Setting up tmux config..."
 if [ -f ~/.tmux.conf ]; then
   echo "~/.tmux.conf already exists, skipping"
