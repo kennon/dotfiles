@@ -86,7 +86,7 @@ function git_prompt_info() {
   if [[ "$(command git config --get oh-my-zsh.hide-status 2>/dev/null)" != "1" ]]; then
     ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
     ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
-    echo "$ZSH_THEME_GIT_PROMPT_PREFIX$(parse_git_dirty)${ref#refs/heads/}$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
+    echo "$ZSH_THEME_GIT_PROMPT_PREFIX$(parse_git_dirty)${ref#refs/heads/}$ZSH_THEME_GIT_PROMPT_SUFFIX"
   fi
 }
 
@@ -96,7 +96,10 @@ PROMPT='%{${prompt_color}%}[%n@%m %1~$(git_prompt_info)]%{$reset_color%}%(!.#.$)
 ZSH_THEME_GIT_PROMPT_PREFIX=" ("
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{${prompt_color}%})"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg_bold[yellow]%}"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{${prompt_color}%}"
+ZSH_THEME_GIT_PROMPT_CLEAN=""
+
+export LSCOLORS=""
+export EDITOR="vim"
 
 ##
 # global aliases
@@ -106,14 +109,5 @@ alias ll="ls -lah"
 
 # load local aliases
 if [ -f ~/.bash_aliases.local ]; then source ~/.bash_aliases.local; fi
-
-export GEM_OPEN_EDITOR="subl"
-export EDITOR="vim"
-export ANSIBLE_HOSTS=/Users/kennon/ansible/hosts
-export DOCKER_HOST=tcp://localhost:4243
-
-export PATH="./bin:~/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH"
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export LSCOLORS=""
 
 source ~/.zshrc.local
