@@ -49,11 +49,6 @@ ZSH_THEME=""
 plugins=(git)
 
 # User configuration
-
-#export PATH="/Users/kennon/.rvm/gems/ruby-2.1.1/bin:/Users/kennon/.rvm/gems/ruby-2.1.1@global/bin:/Users/kennon/.rvm/rubies/ruby-2.1.1/bin:./bin:~/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/sbin:/Users/kennon/.nvm/v0.11.13/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/go/bin:/usr/local/MacGPG2/bin:/Users/kennon/.rvm/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
-
-#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -107,7 +102,4 @@ export EDITOR="vim"
 alias ta="tmux attach"
 alias ll="ls -lah"
 
-# load local aliases
-if [ -f ~/.bash_aliases.local ]; then source ~/.bash_aliases.local; fi
-
-source ~/.zshrc.local
+[[ -r ~/.zshrc.local ]] && source ~/.zshrc.local
