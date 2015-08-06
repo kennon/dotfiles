@@ -102,4 +102,12 @@ export EDITOR="vim"
 alias ta="tmux attach"
 alias ll="ls -lah"
 
+gpg_ownertrust() {
+  echo "$( \
+    gpg --list-keys --fingerprint | \
+    grep $1 -A 1 | tail -1 | \
+    tr -d '[:space:]' | cut -f2 -d'=' \
+  ):6:"
+}
+
 [[ -r ~/.zshrc.local ]] && source ~/.zshrc.local

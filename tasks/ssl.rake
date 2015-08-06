@@ -20,6 +20,18 @@ namespace :ssl do
     `cat #{csr_filename} | pbcopy`
   end
 
+  desc "Create a selfsigned cert"
+  task :create_selfsigned do
+    domain = get_env(:domain)
+    dest_dir = get_env(:dest_dir)
+    csr_filename = File.join(dest_dir, "#{domain}.csr")
+    key_filename = File.join(dest_dir, "#{domain}.key")
+    cert_filename = File.join(dest_dir, "#{domain}.pem")
+
+    `openssl x509 -req -days 3650 -in #{csr_filename} -signkey #{key_filename} -out #{cert_filename}`
+    `cat #{cert_filename} | pbcopy`
+  end
+
   desc "Generate a proper nginx PEM file from PositiveSSL certificate download"
   task :assemble_cert do
     cert_dir = get_env(:cert_dir)
