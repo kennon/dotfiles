@@ -85,8 +85,12 @@ function git_prompt_info() {
   fi
 }
 
+#local prompt_color="$fg_bold[blue]"
+#PROMPT='%{${prompt_color}%}[%n@%m %1~$(git_prompt_info)]%{$reset_color%}%(!.#.$) '
+
 local prompt_color="$fg_bold[blue]"
-PROMPT='%{${prompt_color}%}[%n@%m %1~$(git_prompt_info)]%{$reset_color%}%(!.#.$) '
+local prompt_color_root="$fg_bold[red]"
+PROMPT='%(!.%{${prompt_color_root}%}.%{${prompt_color}%})[%n@%m %1~$(git_prompt_info)]%{$reset_color%}%(!.#.$) '
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" ("
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{${prompt_color}%})"
