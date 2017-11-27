@@ -105,6 +105,7 @@ export EDITOR="vim"
 # put local aliases in .bash_aliases.local
 alias ta="tmux attach"
 alias ll="ls -lah"
+alias tailfn="tail --follow=name"
 
 gpg_ownertrust() {
   echo "$( \
