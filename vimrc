@@ -4,6 +4,7 @@ syntax enable
 set mouse=a
 
 set hidden
+set paste
 
 set tabstop=2
 set expandtab
