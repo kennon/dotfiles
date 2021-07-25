@@ -4,6 +4,7 @@
 alias ta="tmux attach"
 alias ll="ls -lah"
 alias tailfn="tail --follow=name"
+alias dc="docker-compose"
 
 gpg_ownertrust() {
   echo "$( \
