@@ -17,7 +17,7 @@ set ignorecase
 set smartcase
 set noerrorbells
 
-set number
+" set number
 highlight LineNr ctermfg=darkgrey
 
 set backupdir=~/.vim/backup//

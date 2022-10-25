@@ -115,4 +115,6 @@ gpg_ownertrust() {
   ):6:"
 }
 
+export PATH=~/bin:$PATH
+
 [[ -r ~/.zshrc.local ]] && source ~/.zshrc.local

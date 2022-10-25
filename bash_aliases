@@ -14,6 +14,8 @@ gpg_ownertrust() {
   ):6:"
 }
 
+export PATH=~/bin:$PATH
+
 # load local aliases
 if [ -f ~/.bash_aliases.local ]; then source ~/.bash_aliases.local; fi
 

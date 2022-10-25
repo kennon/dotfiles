@@ -68,3 +68,21 @@ else
   ln -sf ~/dotfiles/tasks ~/
 fi
 mkdir -p ~/tasks.local
+
+if command -v curl &> /dev/null
+then
+  case "$(uname)" in
+    Linux*) gitui_url=https://github.com/extrawurst/gitui/releases/download/v0.21.0/gitui-linux-musl.tar.gz;;
+    Darwin*) gitui_url=https://github.com/extrawurst/gitui/releases/download/v0.21.0/gitui-mac.tar.gz;;
+    *) echo "platform not found, skipping gitui"
+  esac
+
+  if [ -n "$gitui_url" ]; then
+    mkdir -p ~/bin
+    curl -L $gitui_url --output /tmp/gitui.tar.gz && \
+      tar -xzvf /tmp/gitui.tar.gz -C ~/bin/ && \
+      rm -f /tmp/gitui.tar.gz
+    mkdir -p ~/.config/gitui
+    ln -sf ~/dotfiles/gitui/key_bindings.ron ~/.config/gitui/key_bindings.ron
+  fi
+fi
